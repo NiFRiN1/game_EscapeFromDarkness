@@ -2,19 +2,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class FullscreenToggle : MonoBehaviour
-{
+public class FullscreenToggle : MonoBehaviour {
     public Button fullscreenButton;
     public TextMeshProUGUI buttonText;
 
-    private void Start()
-    {
+    private void Start() {
         UpdateButtonText();
         fullscreenButton.onClick.AddListener(ToggleFullscreen);
     }
 
-    public void ToggleFullscreen()
-    {
+    public void ToggleFullscreen() {
         if (Screen.fullScreen) {
             buttonText.text = "> Полноэкранный режим: Выкл.";
         }
@@ -25,8 +22,7 @@ public class FullscreenToggle : MonoBehaviour
         Screen.fullScreen = !Screen.fullScreen;
     }
 
-    void UpdateButtonText()
-    {
+    void UpdateButtonText() {
         if (Screen.fullScreen) {
             buttonText.text = "> Полноэкранный режим: Вкл.";
         }

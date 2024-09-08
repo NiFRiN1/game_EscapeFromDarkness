@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
@@ -30,5 +31,15 @@ public class UIController : MonoBehaviour
     {
         gameTitle = Application.productName;
         gameTitleText.text = gameTitle;
+    }
+
+    public void PlayGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }
