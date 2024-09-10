@@ -1,45 +1,91 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 using UnityEngine;
 
 public class PlayerMovementController : MonoBehaviour
 {
     public Transform playerOrientation;
-    [SerializeField] private CapsuleCollider capsule;
-
+    public Transform playerCamera;
+    public MenuController menu;
     [SerializeField] private float currentMoveSpeed;
-    [SerializeField] private float jumpForce;
-    [SerializeField] private float jumpCooldown;
-    [SerializeField] private float airMultiplier;
 
     private float xAxisInput;
     private float zAxisInput;
 
     private Vector3 moveDirection;
     private Rigidbody rb;
+    [SerializeField] private CapsuleCollider capsule;
 
+    [SerializeField] private float jumpForce;
+    [SerializeField] private float jumpCooldown;
+    [SerializeField] private float airMultiplier;
     private bool readyToJump = true;
 
+    private Transform platform; // platform link
+    private Vector3 platformPosition;
+    private Quaternion platformRotation;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
+
     private void Update()
     {
         PlayerInput();
         SpeedControl();
+        
 
         if (IsGrounded())
         {
-            rb.drag = 5;
-        } else rb.drag = 0;
+            rb.drag = 4;
+        }
+        else
+        {
+            rb.drag = 0;
+        }
+
+        InvokePauseMenu();
+
     }
     private void FixedUpdate()
     {
+        if (platform != null)
+        {
+            // Platform movement to player rb
+            Vector3 platformMovement = platform.position - platformPosition;
+            rb.position += platformMovement;
+
+            // Platform rotation to player rb
+            Quaternion platformRotationDelta = platform.rotation * Quaternion.Inverse(platformRotation);
+            rb.MoveRotation(platformRotationDelta * rb.rotation);
+            // Updating platform position & rotation
+            platformPosition = platform.position;
+            platformRotation = platform.rotation;
+        }
         MovePlayer();
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Platform")
+        {
+            Debug.Log("HopedOn");
+            platform = collision.transform; // saving platform.transform component
+            platformPosition = platform.position;
+            platformRotation = platform.rotation;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Platform")
+        {
+            Debug.Log("HopedOff");
+            platform = null;
+        }
+    }
+    
+
     private void PlayerInput()
     {
         xAxisInput = Input.GetAxisRaw("Horizontal");
@@ -68,7 +114,6 @@ public class PlayerMovementController : MonoBehaviour
         {
             rb.AddForce(moveDirection.normalized * currentMoveSpeed * 10f * airMultiplier, ForceMode.Force);
         }
-
     }
 
     private bool IsGrounded()
@@ -82,38 +127,30 @@ public class PlayerMovementController : MonoBehaviour
         return false;
     }
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.tag == "Platform")
-    //    {
-    //        transform.SetParent(other.transform);
-    //    }
-    //}
-
-    //private void OnTriggerExit(Collider other)
-    //{
-    //    if (other.gameObject.tag == "Platform")
-    //    {
-    //        transform.SetParent(null);
-    //    }
-    //}
-
     private void SpeedControl()
     {
-        Vector3 flatVel = new Vector3 (rb.velocity.x, 0f, rb.velocity.z);
-        
-        if (flatVel.magnitude > currentMoveSpeed) //recalculate speed if it's above setted value
+        Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+
+        if (flatVel.magnitude > currentMoveSpeed)
         {
             Vector3 limitedVel = flatVel.normalized * currentMoveSpeed;
-            rb.velocity = new Vector3 (limitedVel.x, rb.velocity.y, limitedVel.z);
+            rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
         }
     }
-
+    public bool InvokePauseMenu()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            menu.Pause();
+        }
+        return true;
+    }
     private void Jump()
     {
-        rb.velocity = new Vector3 (rb.velocity.x, 0, rb.velocity.z);
-        rb.AddForce (transform.up * jumpForce, ForceMode.Impulse);
+        rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+        rb.AddForce((transform.up + moveDirection) * jumpForce, ForceMode.Impulse);
     }
+
     private void ResetJump()
     {
         readyToJump = true;
