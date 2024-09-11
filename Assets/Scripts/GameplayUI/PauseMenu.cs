@@ -1,51 +1,63 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    private bool pauseGame;
-    [SerializeField] private GameObject pauseGameMenu;
+    public TextMeshProUGUI gameVersionText;
+    public TextMeshProUGUI gameTitleText;
+
+    public GameObject pauseCanvas;
+
+    string gameVersion;
+    string gameTitle;
+
+    private void Start()
+    {
+        SetGameTitle();
+        SetGameVersion();
+
+        pauseCanvas.SetActive(false);
+    }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (pauseGame)
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            TogglePauseMenu();
         }
     }
 
-    public void Resume()
+    private void SetGameVersion()
     {
-        pauseGameMenu.SetActive(false);
-        Time.timeScale = 1f;
-        pauseGame = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        gameVersion = Application.version;
+        gameVersionText.text = "v. " + gameVersion;
     }
 
-    public void Pause()
+    private void SetGameTitle()
     {
-        pauseGameMenu.SetActive(true);
-        Time.timeScale = 0f;
-        pauseGame = true; 
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        gameTitle = Application.productName;
+        gameTitleText.text = gameTitle;
     }
 
-    public void LoadMenu()
+    public void ExitGame()
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("Menu");
+        Application.Quit();
+    }
+
+    public void TogglePauseMenu()
+    {
+        bool isActive = pauseCanvas.activeSelf;
+        pauseCanvas.SetActive(!isActive);
+
+        if (pauseCanvas.activeSelf) {
+            Time.timeScale = 0f;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else {
+            Time.timeScale = 1f;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
 }

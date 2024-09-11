@@ -19,7 +19,6 @@ public class ButtonScreenResolutionToggle : MonoBehaviour
 
     private void Start()
     {
-        Screen.SetResolution(1920, 1080, Screen.fullScreen);
         UpdateButtonText();
         resolutionButton.onClick.AddListener(ToggleResolution);
     }

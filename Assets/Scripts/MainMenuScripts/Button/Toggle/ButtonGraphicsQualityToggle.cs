@@ -16,10 +16,7 @@ public class GraphicsQualityToggle : MonoBehaviour
 
     private void Start()
     {
-        QualitySettings.SetQualityLevel(currentQualityIndex, true);
-
         UpdateButtonText();
-
         qualityButton.onClick.AddListener(ToggleQuality);
     }
 

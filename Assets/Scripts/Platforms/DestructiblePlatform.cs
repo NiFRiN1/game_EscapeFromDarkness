@@ -1,23 +1,18 @@
 using UnityEngine;
 using System.Collections;
 
-public class DestructiblePlatform : MonoBehaviour {
-    public float destructionDelay = 2.1f;
-    public float additionalDelayAfterSound = 2.8f;
+public class DestructiblePlatform : MonoBehaviour
+{
+    public float destructionDelay = 5.0f;
+
+    public GameObject NormalVersion;
+    public GameObject destroyVersion;
+
     private bool isPlayerInContact = false;
 
-    public AudioClip destructionSound1;
-    public AudioClip destructionSound2;
-    private AudioSource audioSource;
-
-    private MeshRenderer meshRenderer;
-    private Collider platformCollider;
-
     private void Start()
-   {
-        audioSource = GetComponent<AudioSource>();
-        meshRenderer = GetComponent<MeshRenderer>();
-        platformCollider = GetComponent<Collider>();
+    {
+        destroyVersion.SetActive(false);
     }
 
     public void StartDestruction()
@@ -30,30 +25,12 @@ public class DestructiblePlatform : MonoBehaviour {
 
     private IEnumerator DestroyPlatform()
     {
+        Destroy(NormalVersion, destructionDelay);
+
         yield return new WaitForSeconds(destructionDelay);
-        PlayDestructionSound();
-        HidePlatform();
-        yield return new WaitForSeconds(additionalDelayAfterSound);
-        Destroy(gameObject);
-    }
 
-    private void PlayDestructionSound()
-    {
-        if (audioSource != null) {
-            AudioClip randomSound = Random.value < 0.5f ? destructionSound1 : destructionSound2;
-            if (randomSound != null) {
-                audioSource.PlayOneShot(randomSound);
-            }
-        }
-    }
-
-    private void HidePlatform()
-    {
-        if (meshRenderer != null) {
-            meshRenderer.enabled = false;
-        }
-        if (platformCollider != null) {
-            platformCollider.enabled = false;
+        if (destroyVersion != null) {
+            destroyVersion.SetActive(true);
         }
     }
 }
