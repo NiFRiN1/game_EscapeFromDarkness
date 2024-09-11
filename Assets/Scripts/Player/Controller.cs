@@ -137,7 +137,7 @@ public class Controller : MonoBehaviour
             DestructiblePlatform platform = hit.gameObject.GetComponent<DestructiblePlatform>();
 
             if (platform != null) {
-                platform.StartDestruction();
+                //platform.StartDestruction();
             }
         }
     }
