@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.AI;
 
 public class CameraController : MonoBehaviour
 {
@@ -27,8 +28,8 @@ public class CameraController : MonoBehaviour
         xRotation -= inputMouseY;
 
         xRotation = Mathf.Clamp(xRotation, -90f, 90f); // X rotation lock
-
-        transform.rotation = Quaternion.Euler(xRotation,yRotation,0); // cam rotation
+        transform.rotation = Quaternion.Euler(xRotation, yRotation, 0); // cam rotation
         playerOrientation.rotation = Quaternion.Euler(0, yRotation, 0); // player rotation
     }
 }
+

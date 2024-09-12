@@ -29,13 +29,14 @@ public class PlatformMovement : MonoBehaviour
     private void MovePlatform() {
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
 
-        if (transform.position == targetPosition) {
+        if (transform.position == targetPosition) 
+        {
             movingForward = !movingForward;
             SetTargetPosition();
         }
     }
 
-
+  
     private void SetTargetPosition() {
         if (movementAxis == MovementAxis.X) {
             targetPosition = startPosition + new Vector3(movingForward ? moveDistance : -moveDistance, ZERO_MOVING, ZERO_MOVING);

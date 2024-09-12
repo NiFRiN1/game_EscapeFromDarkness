@@ -27,8 +27,8 @@ public class FP_Controller : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         capsule = GetComponent<CapsuleCollider>();
-        cameraRot = cam.transform.localRotation;
-        characterRot = this.transform.localRotation;
+        cameraRot = cam.transform.rotation;
+        characterRot = this.transform.rotation;
     }
 
     // Update is called once per frame
@@ -57,7 +57,7 @@ public class FP_Controller : MonoBehaviour
     {
         xAxisMovement = Input.GetAxis("Horizontal") * _moveSpeed;
         zAxisMovement = Input.GetAxis("Vertical") * _moveSpeed;
-        rb.position = cam.transform.forward * zAxisMovement + cam.transform.right * xAxisMovement; //new Vector3(x * speed, 0, z * speed);
+        rb.position = transform.forward * zAxisMovement + transform.right * xAxisMovement; //new Vector3(x * speed, 0, z * speed);
     }
 
     Quaternion ClampRotationAroundXAxis(Quaternion q)
