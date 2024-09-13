@@ -1,6 +1,8 @@
 using UnityEngine;
 
-public class PlatformMovement : MonoBehaviour {
+public class PlatformMovement : MonoBehaviour 
+{
+    
     public bool isMovementActive = true;
     public enum MovementAxis { X, Z, Y }
     public MovementAxis movementAxis = MovementAxis.X;
@@ -18,7 +20,7 @@ public class PlatformMovement : MonoBehaviour {
         SetTargetPosition();
     }
 
-    private void Update() {
+    private void FixedUpdate() {
         if (isMovementActive) {
             MovePlatform();
         }
@@ -27,12 +29,14 @@ public class PlatformMovement : MonoBehaviour {
     private void MovePlatform() {
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
 
-        if (transform.position == targetPosition) {
+        if (transform.position == targetPosition) 
+        {
             movingForward = !movingForward;
             SetTargetPosition();
         }
     }
 
+  
     private void SetTargetPosition() {
         if (movementAxis == MovementAxis.X) {
             targetPosition = startPosition + new Vector3(movingForward ? moveDistance : -moveDistance, ZERO_MOVING, ZERO_MOVING);
