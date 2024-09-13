@@ -7,7 +7,7 @@ public class PlayerMovementController : MonoBehaviour
     public Transform playerOrientation;
     public Transform playerCamera;
     [SerializeField] private CapsuleCollider capsule;
-    public MenuController menu;
+    //public MenuController menu;
 
     [SerializeField] private float currentMoveSpeed;
 
@@ -32,12 +32,12 @@ public class PlayerMovementController : MonoBehaviour
     {
         PlayerInput();
         SpeedControl();
-        InvokePauseMenu();
+        //InvokePauseMenu();
 
 
         if (IsGrounded())
         {
-            rb.drag = 4;
+            rb.drag = 6;
         }
         else
         {
@@ -100,14 +100,14 @@ public class PlayerMovementController : MonoBehaviour
             rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
         }
     }
-    public bool InvokePauseMenu()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            menu.Pause();
-        }
-        return true;
-    }
+    //public bool InvokePauseMenu()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Escape))
+    //    {
+    //        menu.Pause();
+    //    }
+    //    return true;
+    //}
     private void Jump()
     {
         rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);

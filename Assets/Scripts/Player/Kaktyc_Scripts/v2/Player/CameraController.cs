@@ -8,7 +8,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float _xSens = 10f;
 
     public Transform playerObjOrientation;
-
+    Vector3 camOffset;
     private float xRotation;
     private float yRotation;
 
@@ -16,10 +16,12 @@ public class CameraController : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        camOffset = new Vector3 (0,1.5f,0);
     }
 
-    private void Update()
+    private void LateUpdate()
     {
+        transform.position = playerObjOrientation.position + camOffset;
         float inputMouseX = Input.GetAxis("Mouse X") * _xSens * Time.deltaTime;
         float inputMouseY = Input.GetAxis("Mouse Y") * _ySens * Time.deltaTime;
 
