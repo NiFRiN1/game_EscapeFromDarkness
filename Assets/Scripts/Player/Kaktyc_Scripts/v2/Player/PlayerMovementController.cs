@@ -21,12 +21,13 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] private float jumpForce;
     [SerializeField] private float jumpCooldown;
     [SerializeField] private float airMultiplier;
-    //private bool readyToJump = true;
+    private bool readyToJump;
 
     private void Start()
     {
         Application.targetFrameRate = 120;
         rb = GetComponent<Rigidbody>();
+        readyToJump = true;
     }
 
     private void Update()
@@ -39,7 +40,7 @@ public class PlayerMovementController : MonoBehaviour
 
         if (IsGrounded())
         {
-            rb.drag = 6;
+            rb.drag = 5;
         }
         else
         {
@@ -49,6 +50,12 @@ public class PlayerMovementController : MonoBehaviour
     private void FixedUpdate()
     {
         MovePlayer();
+        if (Input.GetKey(KeyCode.Space) && IsGrounded() && readyToJump)
+        {
+            Jump();
+            readyToJump = false;
+            Invoke(nameof(ResetJump), jumpCooldown);
+        }
     }
 
     private void PlayerInput()
@@ -56,12 +63,6 @@ public class PlayerMovementController : MonoBehaviour
         xAxisInput = Input.GetAxisRaw("Horizontal");
         zAxisInput = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetKeyDown(KeyCode.Space) &&  IsGrounded())
-        {
-            Jump();
-            //readyToJump = false;
-            //Invoke(nameof(ResetJump), jumpCooldown);
-        }
     }
 
     private void MovePlayer()
@@ -79,6 +80,7 @@ public class PlayerMovementController : MonoBehaviour
         {
             rb.AddForce(moveDirection.normalized * currentMoveSpeed * 10f * airMultiplier, ForceMode.Force);
         }
+
     }
 
     private bool IsGrounded()
@@ -112,12 +114,12 @@ public class PlayerMovementController : MonoBehaviour
     //}
     private void Jump()
     {
-        rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
-        rb.AddForce((transform.up + moveDirection) * jumpForce, ForceMode.Impulse);
+        rb.velocity = new Vector3(rb.velocity.x, -1, rb.velocity.z);
+        rb.AddForce((Vector3.up + moveDirection) * jumpForce, ForceMode.Impulse);
     }
 
-    //private void ResetJump()
-    //{
-    //    readyToJump = true;
-    //}
+    private void ResetJump()
+    {
+        readyToJump = true;
+    }
 }
