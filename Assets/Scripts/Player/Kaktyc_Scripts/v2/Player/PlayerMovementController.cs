@@ -25,11 +25,13 @@ public class PlayerMovementController : MonoBehaviour
 
     private void Start()
     {
+        Application.targetFrameRate = 120;
         rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
+       
         PlayerInput();
         SpeedControl();
         //InvokePauseMenu();
