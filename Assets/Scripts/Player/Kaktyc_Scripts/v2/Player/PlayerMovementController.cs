@@ -27,12 +27,14 @@ public class PlayerMovementController : MonoBehaviour
     {
         Application.targetFrameRate = 120;
         rb = GetComponent<Rigidbody>();
-        readyToJump = true;
     }
 
     private void Update()
     {
-       
+       if (Input.GetKeyDown(KeyCode.Space) && IsGrounded()) 
+        {
+            readyToJump = true;
+        }
         PlayerInput();
         SpeedControl();
         //InvokePauseMenu();
@@ -50,11 +52,11 @@ public class PlayerMovementController : MonoBehaviour
     private void FixedUpdate()
     {
         MovePlayer();
-        if (Input.GetKey(KeyCode.Space) && IsGrounded() && readyToJump)
+        if (readyToJump)
         {
             Jump();
             readyToJump = false;
-            Invoke(nameof(ResetJump), jumpCooldown);
+            //Invoke(nameof(ResetJump), jumpCooldown);
         }
     }
 
@@ -114,12 +116,12 @@ public class PlayerMovementController : MonoBehaviour
     //}
     private void Jump()
     {
-        rb.velocity = new Vector3(rb.velocity.x, -1, rb.velocity.z);
+        rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
         rb.AddForce((Vector3.up + moveDirection) * jumpForce, ForceMode.Impulse);
     }
 
-    private void ResetJump()
-    {
-        readyToJump = true;
-    }
+    //private void ResetJump()
+    //{
+    //    readyToJump = true;
+    //}
 }
