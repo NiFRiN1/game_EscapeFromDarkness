@@ -7,7 +7,7 @@ public class PlayerMovementController : MonoBehaviour
     public Transform playerOrientation;
     public Transform playerCamera;
     [SerializeField] private CapsuleCollider capsule;
-    public MenuController menu;
+    //public MenuController menu;
 
     [SerializeField] private float currentMoveSpeed;
 
@@ -21,23 +21,28 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] private float jumpForce;
     [SerializeField] private float jumpCooldown;
     [SerializeField] private float airMultiplier;
-    //private bool readyToJump = true;
+    private bool readyToJump;
 
     private void Start()
     {
+        Application.targetFrameRate = 120;
         rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
+       if (Input.GetKeyDown(KeyCode.Space) && IsGrounded()) 
+        {
+            readyToJump = true;
+        }
         PlayerInput();
         SpeedControl();
-        InvokePauseMenu();
+        //InvokePauseMenu();
 
 
         if (IsGrounded())
         {
-            rb.drag = 4;
+            rb.drag = 5;
         }
         else
         {
@@ -47,6 +52,12 @@ public class PlayerMovementController : MonoBehaviour
     private void FixedUpdate()
     {
         MovePlayer();
+        if (readyToJump)
+        {
+            Jump();
+            readyToJump = false;
+            //Invoke(nameof(ResetJump), jumpCooldown);
+        }
     }
 
     private void PlayerInput()
@@ -54,12 +65,6 @@ public class PlayerMovementController : MonoBehaviour
         xAxisInput = Input.GetAxisRaw("Horizontal");
         zAxisInput = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetKeyDown(KeyCode.Space) &&  IsGrounded())
-        {
-            Jump();
-            //readyToJump = false;
-            //Invoke(nameof(ResetJump), jumpCooldown);
-        }
     }
 
     private void MovePlayer()
@@ -77,6 +82,7 @@ public class PlayerMovementController : MonoBehaviour
         {
             rb.AddForce(moveDirection.normalized * currentMoveSpeed * 10f * airMultiplier, ForceMode.Force);
         }
+
     }
 
     private bool IsGrounded()
@@ -100,18 +106,18 @@ public class PlayerMovementController : MonoBehaviour
             rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
         }
     }
-    public bool InvokePauseMenu()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            menu.Pause();
-        }
-        return true;
-    }
+    //public bool InvokePauseMenu()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Escape))
+    //    {
+    //        menu.Pause();
+    //    }
+    //    return true;
+    //}
     private void Jump()
     {
         rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
-        rb.AddForce((transform.up + moveDirection) * jumpForce, ForceMode.Impulse);
+        rb.AddForce((Vector3.up + moveDirection) * jumpForce, ForceMode.Impulse);
     }
 
     //private void ResetJump()
