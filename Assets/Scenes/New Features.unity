@@ -834,7 +834,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 2.4
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -870,7 +870,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1524,7 +1524,7 @@ PrefabInstance:
     - target: {fileID: 4676360935749545931, guid: 8ed493ee520e3f04186f4412cd16f36e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -23.94
+      value: -12.528
       objectReference: {fileID: 0}
     - target: {fileID: 4676360935749545931, guid: 8ed493ee520e3f04186f4412cd16f36e,
         type: 3}
@@ -1534,12 +1534,12 @@ PrefabInstance:
     - target: {fileID: 4676360935749545931, guid: 8ed493ee520e3f04186f4412cd16f36e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.48
+      value: 5.457
       objectReference: {fileID: 0}
     - target: {fileID: 4676360935749545931, guid: 8ed493ee520e3f04186f4412cd16f36e,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4676360935749545931, guid: 8ed493ee520e3f04186f4412cd16f36e,
         type: 3}
@@ -1549,7 +1549,7 @@ PrefabInstance:
     - target: {fileID: 4676360935749545931, guid: 8ed493ee520e3f04186f4412cd16f36e,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4676360935749545931, guid: 8ed493ee520e3f04186f4412cd16f36e,
         type: 3}
@@ -1564,27 +1564,17 @@ PrefabInstance:
     - target: {fileID: 4676360935749545931, guid: 8ed493ee520e3f04186f4412cd16f36e,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 4676360935749545931, guid: 8ed493ee520e3f04186f4412cd16f36e,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5065082319325773917, guid: 8ed493ee520e3f04186f4412cd16f36e,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 5300255782688350817, guid: 8ed493ee520e3f04186f4412cd16f36e,
         type: 3}
       propertyPath: m_Name
       value: PlayerGroupPrefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 5300255782688350817, guid: 8ed493ee520e3f04186f4412cd16f36e,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
