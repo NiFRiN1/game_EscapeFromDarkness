@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FollowPlayerTillTrigger : MonoBehaviour
+public class FollowPlayer : MonoBehaviour
 {
     public Transform playerTransform;
     public float ghostDashSpeed = 0.5f;
@@ -19,9 +19,9 @@ public class FollowPlayerTillTrigger : MonoBehaviour
         transform.LookAt(playerTransform.position);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             gameObject.SetActive(false);
         }
