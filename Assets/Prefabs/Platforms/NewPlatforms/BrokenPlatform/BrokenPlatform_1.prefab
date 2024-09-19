@@ -1174,6 +1174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3989420533531246167}
   - component: {fileID: 6635536101282341572}
+  - component: {fileID: 3521690238705290711}
   m_Layer: 0
   m_Name: BrokenPlatform_1
   m_TagString: Untagged
@@ -1211,8 +1212,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destructionDelay: 5
-  NormalVersion: {fileID: 1669771137721029115}
-  destroyVersion: {fileID: 2323104633502148199}
+--- !u!65 &3521690238705290711
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2983922842549187390}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.89, y: 1.96, z: 3.52}
+  m_Center: {x: -0.28, y: 0, z: 0}
 --- !u!1 &3197391873793332765
 GameObject:
   m_ObjectHideFlags: 0

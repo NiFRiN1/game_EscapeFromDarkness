@@ -32,4 +32,9 @@ public class CameraController : MonoBehaviour
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0); // cam rotation
         playerObjOrientation.rotation = Quaternion.Euler(0, yRotation, 0); // player rotation
     }
+
+    public void SetSens(float value) {
+        _ySens = value;
+        _xSens = value;
+    }
 }
