@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Audio;
 
 public class DestructiblePlatform : MonoBehaviour
 {
@@ -7,14 +8,16 @@ public class DestructiblePlatform : MonoBehaviour
 
     private bool isPlayerInContact = false;
 
+    public AudioSource destructPlatformSound;
+
     private void Start()
     {
     }
 
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.CompareTag("Player")) {
+        if (collision.gameObject.tag == ("Player")) {
             StartDestruction();
         }
     }
@@ -29,8 +32,8 @@ public class DestructiblePlatform : MonoBehaviour
 
     private IEnumerator DestroyPlatform()
     {
+        destructPlatformSound.Play();
         yield return new WaitForSeconds(destructionDelay);
-
         Destroy(gameObject);
     }
 }

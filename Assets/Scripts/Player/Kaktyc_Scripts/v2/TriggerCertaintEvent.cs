@@ -9,11 +9,13 @@ public class TriggerCertaintEvent : MonoBehaviour
     [SerializeField] UnityEvent onTriggerExit;
     private void OnTriggerEnter(Collider other)
     {
-        onTriggerEnter.Invoke();
+        if (other.gameObject.tag == "Player")
+            onTriggerEnter.Invoke();
     }
 
     private void OnTriggerExit(Collider other)
     {
-        onTriggerExit.Invoke();
+        if (other.gameObject.tag == "Player")
+            onTriggerExit.Invoke();
     }
 }
