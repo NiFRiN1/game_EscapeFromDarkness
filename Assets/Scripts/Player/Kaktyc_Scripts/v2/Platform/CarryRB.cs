@@ -12,7 +12,7 @@ public class CarryRB : MonoBehaviour
     Transform _transform;
     [HideInInspector] public Rigidbody _rb;
 
-    
+
     void Start()
     {
         _transform = transform;
@@ -22,7 +22,7 @@ public class CarryRB : MonoBehaviour
 
         if (useSensorOnTop)
         {
-            foreach (CarryRBSensor sensor in GetComponentsInChildren<CarryRBSensor>() )
+            foreach (CarryRBSensor sensor in GetComponentsInChildren<CarryRBSensor>())
             {
                 sensor.carrier = this;
             }
@@ -30,7 +30,7 @@ public class CarryRB : MonoBehaviour
     }
 
     private void FixedUpdate()
-    { 
+    {
         if (RigidbodyList.Count > 0)
         {
             Vector3 velocity = (_transform.position - lastPosition);
@@ -46,7 +46,7 @@ public class CarryRB : MonoBehaviour
         lastPosition = _transform.position;
     }
 
-    
+
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -67,12 +67,12 @@ public class CarryRB : MonoBehaviour
         Rigidbody rb = collision.collider.GetComponent<Rigidbody>();
         if (rb != null)
         {
-            RemoveRigidBody(rb);    
+            RemoveRigidBody(rb);
         }
     }
 
     public void AddRigidBody(Rigidbody rb)
-    {   
+    {
         if (!RigidbodyList.Contains(rb))
         {
             RigidbodyList.Add(rb);
