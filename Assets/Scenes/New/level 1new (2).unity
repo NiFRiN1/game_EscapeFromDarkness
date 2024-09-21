@@ -4526,7 +4526,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2983922842549187390, guid: 72c569e728c5666478cb846f590010a0,
         type: 3}
-      insertIndex: 4
+      insertIndex: -1
       addedObject: {fileID: 1952129421}
   m_SourcePrefab: {fileID: 100100000, guid: 72c569e728c5666478cb846f590010a0, type: 3}
 --- !u!4 &238534973 stripped
@@ -27165,17 +27165,17 @@ PrefabInstance:
     - target: {fileID: 4676360935749545931, guid: 8ed493ee520e3f04186f4412cd16f36e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 83.7
+      value: 80.08
       objectReference: {fileID: 0}
     - target: {fileID: 4676360935749545931, guid: 8ed493ee520e3f04186f4412cd16f36e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 23.533195
+      value: 28.580948
       objectReference: {fileID: 0}
     - target: {fileID: 4676360935749545931, guid: 8ed493ee520e3f04186f4412cd16f36e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -212.7
+      value: -146.53207
       objectReference: {fileID: 0}
     - target: {fileID: 4676360935749545931, guid: 8ed493ee520e3f04186f4412cd16f36e,
         type: 3}

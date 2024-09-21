@@ -8,10 +8,16 @@ public class DestructiblePlatform : MonoBehaviour
 
     private bool isPlayerInContact = false;
 
+    Collider thisObject;
+
+    public GameObject brokenPlatformNormal;
+    public GameObject brokenPlatformSegments;
+
     public AudioSource destructPlatformSound;
 
     private void Start()
     {
+        thisObject = GetComponent<Collider>();
     }
 
 
@@ -26,7 +32,7 @@ public class DestructiblePlatform : MonoBehaviour
     {
         if (!isPlayerInContact) {
             isPlayerInContact = true;
-            StartCoroutine(DestroyPlatform());
+            StartCoroutine(DestroyPlatform());               
         }
     }
 
@@ -34,6 +40,9 @@ public class DestructiblePlatform : MonoBehaviour
     {
         destructPlatformSound.Play();
         yield return new WaitForSeconds(destructionDelay);
-        Destroy(gameObject);
+        brokenPlatformNormal.SetActive(false);
+        brokenPlatformSegments.SetActive(true);
+        thisObject.enabled = false;
+        //Destroy(gameObject);
     }
 }

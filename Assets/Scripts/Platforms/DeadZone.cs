@@ -13,6 +13,8 @@ public class DeadZone : MonoBehaviour {
     void Start()
     {
         audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.volume = 0.5f;
+        audioSource.playOnAwake = false;
         audioSource.clip = deathSound;
     }
 
