@@ -10,7 +10,7 @@ public class PlatformRotation : MonoBehaviour
     public float rotationSpeed = 2.6f;
 
     private const float FULL_ROTATION = 360f;
-    private const float ZERO_ROTATION = 0f;
+    private const float ZERO_ROTATION = -89.98f;
     private const float ROTATION_MULTIPLIER = 10f;
     private const float CLOCKWISE_DIRECTION = 1f;
     private const float COUNTER_CLOCKWISE_DIRECTION = -1f;

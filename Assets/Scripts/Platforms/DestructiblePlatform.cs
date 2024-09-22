@@ -1,36 +1,48 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Audio;
 
 public class DestructiblePlatform : MonoBehaviour
 {
     public float destructionDelay = 5.0f;
 
-    public GameObject NormalVersion;
-    //public GameObject destroyVersion;
-
     private bool isPlayerInContact = false;
+
+    Collider thisObject;
+
+    public GameObject brokenPlatformNormal;
+    public GameObject brokenPlatformSegments;
+
+    public AudioSource destructPlatformSound;
 
     private void Start()
     {
-        //destroyVersion.SetActive(false);
+        thisObject = GetComponent<Collider>();
+    }
+
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == ("Player")) {
+            StartDestruction();
+        }
     }
 
     public void StartDestruction()
     {
         if (!isPlayerInContact) {
             isPlayerInContact = true;
-            StartCoroutine(DestroyPlatform());
+            StartCoroutine(DestroyPlatform());               
         }
     }
 
     private IEnumerator DestroyPlatform()
     {
-        //Destroy(NormalVersion, destructionDelay);
-
+        destructPlatformSound.Play();
         yield return new WaitForSeconds(destructionDelay);
-
-        //if (destroyVersion != null) {
-        //    destroyVersion.SetActive(true);
-        //}
+        brokenPlatformNormal.SetActive(false);
+        brokenPlatformSegments.SetActive(true);
+        thisObject.enabled = false;
+        //Destroy(gameObject);
     }
 }

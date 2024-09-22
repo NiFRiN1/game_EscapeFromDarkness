@@ -10,18 +10,23 @@ public class DeadZone : MonoBehaviour {
 
     private AudioSource audioSource;
 
-    void Start() {
+    void Start()
+    {
         audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.volume = 0.5f;
+        audioSource.playOnAwake = false;
         audioSource.clip = deathSound;
     }
 
-    private void OnTriggerEnter(Collider other) {
+    private void OnTriggerEnter(Collider other) 
+    {
         if (other.CompareTag("Player")) {
             StartCoroutine(LoadSceneWithDelay(other.gameObject));
         }
     }
 
-    private IEnumerator LoadSceneWithDelay(GameObject player) {
+    private IEnumerator LoadSceneWithDelay(GameObject player)
+    {
         audioSource.Play();
 
         if (mainCamera != null) {
@@ -31,6 +36,7 @@ public class DeadZone : MonoBehaviour {
         Controller playerController = player.GetComponent<Controller>();
         if (playerController != null) {
             playerController.enabled = false;
+
         }
         yield return new WaitForSeconds(delayBeforeLoad);
 

@@ -10,9 +10,15 @@ public class DarknessMoving : MonoBehaviour
     }
 
     public Axis selectedAxis = Axis.X;
-    public float speed = 1.0f;
+    public float currentSpeed = 1.0f;
+    public float kayotSpeed;
+    public float backToNormalSpeed;
 
-
+    private void Start()
+    {
+        backToNormalSpeed = currentSpeed;
+        kayotSpeed = currentSpeed / 2;
+    }
     private void Update()
     {
         MoveAlongAxis();
@@ -24,16 +30,32 @@ public class DarknessMoving : MonoBehaviour
 
         switch (selectedAxis) {
             case Axis.X:
-                movement = new Vector3(speed * Time.deltaTime, 0, 0);
+                movement = new Vector3(currentSpeed * Time.deltaTime, 0, 0);
                 break;
             case Axis.Y:
-                movement = new Vector3(0, speed * Time.deltaTime, 0);
+                movement = new Vector3(0, currentSpeed * Time.deltaTime, 0);
                 break;
             case Axis.Z:
-                movement = new Vector3(0, 0, speed * Time.deltaTime);
+                movement = new Vector3(0, 0, currentSpeed * Time.deltaTime);
                 break;
         }
 
         transform.Translate(movement);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            currentSpeed = kayotSpeed;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            currentSpeed = backToNormalSpeed;
+        }
     }
 }

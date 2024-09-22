@@ -373,7 +373,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49dd79b7f25429a4ea4387ba22be85c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 0}
+  playerTransform: {fileID: 6159126067730607805, guid: 849f2cdc00b6f6544b852a33abc7dffa,
+    type: 3}
   ghostDashSpeed: 5
 --- !u!82 &7653244162235709948
 AudioSource:
