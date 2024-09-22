@@ -7,9 +7,8 @@ public class GraphicsQualityToggle : MonoBehaviour
     public Button qualityButton;
     public TextMeshProUGUI buttonText;
 
-    private int currentQualityIndex = 2;
+    private int currentQualityIndex = 1;
     private readonly string[] qualityLevels = new string[] {
-        "Низкая",
         "Средняя",
         "Высокая"
     };

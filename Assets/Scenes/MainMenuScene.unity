@@ -4011,7 +4011,8 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5366835732015955405, guid: a60e70576b7219f41a67e2822b8ace39, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -13481,7 +13482,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: human_1 (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3418041545229213966, guid: 74641fc5fc70ffa4d9f8240e0107e2c7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -15779,7 +15781,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: human_1 (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3418041545229213966, guid: 74641fc5fc70ffa4d9f8240e0107e2c7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -16711,7 +16714,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: human_1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3418041545229213966, guid: 74641fc5fc70ffa4d9f8240e0107e2c7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

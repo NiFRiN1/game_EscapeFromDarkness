@@ -34,15 +34,11 @@ public class DeadZone : MonoBehaviour
     {
         audioSource.Play();
 
-        if (mainCamera != null) {
-            mainCamera.enabled = false;
-            DeadScreen.SetActive(true);
-        }
+        DeadScreen.SetActive(true);
 
         Controller playerController = player.GetComponent<Controller>();
         if (playerController != null) {
             playerController.enabled = false;
-
         }
         yield return new WaitForSeconds(delayBeforeLoad);
 

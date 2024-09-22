@@ -12,6 +12,11 @@ public class UIController : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1.0f;
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
         Screen.SetResolution(1920, 1080, true);
         QualitySettings.SetQualityLevel(2);
 

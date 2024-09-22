@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour
     public TextMeshProUGUI gameTitleText;
 
     public GameObject pauseCanvas;
+    public GameObject deadScreen;
 
     string gameVersion;
     string gameTitle;
@@ -46,18 +47,20 @@ public class PauseMenu : MonoBehaviour
 
     public void TogglePauseMenu()
     {
-        bool isActive = pauseCanvas.activeSelf;
-        pauseCanvas.SetActive(!isActive);
+        if (deadScreen.activeInHierarchy != true) {
+            bool isActive = pauseCanvas.activeSelf;
+            pauseCanvas.SetActive(!isActive);
 
-        if (pauseCanvas.activeSelf) {
-            Time.timeScale = 0f;
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-        }
-        else {
-            Time.timeScale = 1f;
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
+            if (pauseCanvas.activeSelf) {
+                Time.timeScale = 0f;
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+            }
+            else {
+                Time.timeScale = 1f;
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+            }
         }
     }
 }
