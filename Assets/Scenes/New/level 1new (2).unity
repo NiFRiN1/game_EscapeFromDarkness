@@ -33503,6 +33503,11 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 1910784116}
+    - target: {fileID: 7524849596063765561, guid: cd840a9b4dfb0ff40a809fd0d75f399b,
+        type: 3}
+      propertyPath: sceneToLoad
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7525203132368932729, guid: cd840a9b4dfb0ff40a809fd0d75f399b,
         type: 3}
       propertyPath: m_StaticEditorFlags
