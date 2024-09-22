@@ -1489,10 +1489,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1398192323}
     m_Modifications:
+    - target: {fileID: 1570177497808773222, guid: 7e826a46d9721c44fb741d898d6149da,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1662041371585702221, guid: 7e826a46d9721c44fb741d898d6149da,
         type: 3}
       propertyPath: m_Name
       value: FlickeringLightPrefab (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4889862029782082773, guid: 7e826a46d9721c44fb741d898d6149da,
+        type: 3}
+      propertyPath: MinDistance
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 6143503000359405018, guid: 7e826a46d9721c44fb741d898d6149da,
         type: 3}
@@ -1557,6 +1567,21 @@ PrefabInstance:
     - target: {fileID: 6902638595809202409, guid: 7e826a46d9721c44fb741d898d6149da,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6982312939034310163, guid: 7e826a46d9721c44fb741d898d6149da,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992536272187036198, guid: 7e826a46d9721c44fb741d898d6149da,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041838464873011237, guid: 7e826a46d9721c44fb741d898d6149da,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5131,10 +5156,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 279452057}
     m_Modifications:
+    - target: {fileID: 1570177497808773222, guid: 7e826a46d9721c44fb741d898d6149da,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1662041371585702221, guid: 7e826a46d9721c44fb741d898d6149da,
         type: 3}
       propertyPath: m_Name
       value: FlickeringLightPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 4889862029782082773, guid: 7e826a46d9721c44fb741d898d6149da,
+        type: 3}
+      propertyPath: MinDistance
+      value: 0.95
       objectReference: {fileID: 0}
     - target: {fileID: 6143503000359405018, guid: 7e826a46d9721c44fb741d898d6149da,
         type: 3}
@@ -5209,6 +5244,21 @@ PrefabInstance:
     - target: {fileID: 6902638595809202409, guid: 7e826a46d9721c44fb741d898d6149da,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6982312939034310163, guid: 7e826a46d9721c44fb741d898d6149da,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992536272187036198, guid: 7e826a46d9721c44fb741d898d6149da,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041838464873011237, guid: 7e826a46d9721c44fb741d898d6149da,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -7003,7 +7053,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 589561063}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec7a0796d3fdd434b800577fd88144b1, type: 3}
   m_Name: 
@@ -7222,7 +7272,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 367269297}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec7a0796d3fdd434b800577fd88144b1, type: 3}
   m_Name: 
@@ -10274,7 +10324,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 106590471}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec7a0796d3fdd434b800577fd88144b1, type: 3}
   m_Name: 
