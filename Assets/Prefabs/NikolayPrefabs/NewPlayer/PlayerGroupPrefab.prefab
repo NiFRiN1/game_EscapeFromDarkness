@@ -286,6 +286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ySens: 500
   _xSens: 500
+  _sensSliderObject: {fileID: 0}
   playerObjOrientation: {fileID: 3353926180428294579}
 --- !u!1 &5065082319325773917
 GameObject:

@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraController : MonoBehaviour
 {
     [SerializeField] private float _ySens = 10f;
     [SerializeField] private float _xSens = 10f;
+    [SerializeField] private GameObject _sensSliderObject;
+    private float camSensSider;
 
     public Transform playerObjOrientation;
     Vector3 camOffset;
@@ -14,6 +17,7 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
+        
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         camOffset = new Vector3 (0,1.5f,0);
@@ -21,6 +25,7 @@ public class CameraController : MonoBehaviour
 
     private void LateUpdate()
     {
+        camSensSider = _sensSliderObject.GetComponent<Slider>().value;
         transform.position = playerObjOrientation.position + camOffset;
         float inputMouseX = Input.GetAxis("Mouse X") * _xSens * Time.deltaTime;
         float inputMouseY = Input.GetAxis("Mouse Y") * _ySens * Time.deltaTime;
@@ -33,8 +38,9 @@ public class CameraController : MonoBehaviour
         playerObjOrientation.rotation = Quaternion.Euler(0, yRotation, 0); // player rotation
     }
 
-    public void SetSens(float value) {
-        _ySens = value;
-        _xSens = value;
+    public void SetSens(float slider) {
+        slider = camSensSider;
+        _ySens = slider;
+        _xSens = slider;
     }
 }

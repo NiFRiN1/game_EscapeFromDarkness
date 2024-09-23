@@ -2924,6 +2924,12 @@ PrefabInstance:
       propertyPath: MinDistance
       value: 0.9
       objectReference: {fileID: 0}
+    - target: {fileID: 4889862029782082773, guid: 7e826a46d9721c44fb741d898d6149da,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8278796181815807816, guid: 572e5bae5c5623a419b3902f32d4aa4d,
+        type: 2}
     - target: {fileID: 6143503000359405018, guid: 7e826a46d9721c44fb741d898d6149da,
         type: 3}
       propertyPath: m_Range
@@ -7639,6 +7645,12 @@ PrefabInstance:
       propertyPath: MinDistance
       value: 0.95
       objectReference: {fileID: 0}
+    - target: {fileID: 4889862029782082773, guid: 7e826a46d9721c44fb741d898d6149da,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8278796181815807816, guid: 572e5bae5c5623a419b3902f32d4aa4d,
+        type: 2}
     - target: {fileID: 6143503000359405018, guid: 7e826a46d9721c44fb741d898d6149da,
         type: 3}
       propertyPath: m_Range
@@ -9049,23 +9061,22 @@ MonoBehaviour:
   m_FillRect: {fileID: 80509244}
   m_HandleRect: {fileID: 154390425}
   m_Direction: 0
-  m_MinValue: 1.5
-  m_MaxValue: 4.5
-  m_WholeNumbers: 0
-  m_Value: 2
+  m_MinValue: 200
+  m_MaxValue: 700
+  m_WholeNumbers: 1
+  m_Value: 200
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7545721259514187105, guid: 849f2cdc00b6f6544b852a33abc7dffa,
-          type: 3}
-        m_TargetAssemblyTypeName: UnityEditor.MonoScript, UnityEditor.CoreModule
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 1910074230}
+        m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
+        m_MethodName: SetSens
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 500
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -12897,6 +12908,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1562989605}
+  - component: {fileID: 1562989606}
   m_Layer: 0
   m_Name: AudioController
   m_TagString: Untagged
@@ -12921,6 +12933,22 @@ Transform:
   - {fileID: 1854200296}
   m_Father: {fileID: 2002529983}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1562989606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562989604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eb48574e71193741bf921254058d1c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 572e5bae5c5623a419b3902f32d4aa4d, type: 2}
+  musicSlider: {fileID: 56520740}
+  effectsSlider: {fileID: 406480392}
+  otherSlider: {fileID: 535981085}
 --- !u!1 &1582951406
 GameObject:
   m_ObjectHideFlags: 0
@@ -15527,7 +15555,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 3cb245635ad9ed84f9fae8874fbc9d9c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -15964,6 +15992,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1883916909}
   m_CullTransparentMesh: 1
+--- !u!114 &1910074230 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8968156272376568452, guid: 8ed493ee520e3f04186f4412cd16f36e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1910784115}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 064572aa7530e1542b069831c16eeae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1910749090
 GameObject:
   m_ObjectHideFlags: 0
@@ -16102,6 +16142,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerGroupPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 8968156272376568452, guid: 8ed493ee520e3f04186f4412cd16f36e,
+        type: 3}
+      propertyPath: _sensSliderObject
+      value: 
+      objectReference: {fileID: 1092507965}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
