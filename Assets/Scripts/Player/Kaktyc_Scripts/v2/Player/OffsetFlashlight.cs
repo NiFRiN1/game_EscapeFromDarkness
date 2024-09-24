@@ -15,7 +15,7 @@ public class OffsetFlashlight : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         transform.position = objToFollow.transform.position + vectOffset;
         transform.rotation = Quaternion.Slerp (transform.rotation,objToFollow.transform.rotation,followSpeed*Time.fixedDeltaTime);

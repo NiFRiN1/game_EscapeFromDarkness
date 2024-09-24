@@ -2515,7 +2515,8 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 13400000, guid: 854e2a20495239146b913f878282464b,
+        type: 2}
     - target: {fileID: 2710849235039234884, guid: c7ce9769d90de704d8c0e74f9c3feee1,
         type: 3}
       propertyPath: m_Volume
@@ -4408,6 +4409,17 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.08576733
       objectReference: {fileID: 0}
+    - target: {fileID: 4889862029782082773, guid: 7e826a46d9721c44fb741d898d6149da,
+        type: 3}
+      propertyPath: MinDistance
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 4889862029782082773, guid: 7e826a46d9721c44fb741d898d6149da,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8278796181815807816, guid: 572e5bae5c5623a419b3902f32d4aa4d,
+        type: 2}
     - target: {fileID: 6902638595809202409, guid: 7e826a46d9721c44fb741d898d6149da,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6382,6 +6394,17 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.020276444
       objectReference: {fileID: 0}
+    - target: {fileID: 4889862029782082773, guid: 7e826a46d9721c44fb741d898d6149da,
+        type: 3}
+      propertyPath: MinDistance
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 4889862029782082773, guid: 7e826a46d9721c44fb741d898d6149da,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8278796181815807816, guid: 572e5bae5c5623a419b3902f32d4aa4d,
+        type: 2}
     - target: {fileID: 6902638595809202409, guid: 7e826a46d9721c44fb741d898d6149da,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11216,6 +11239,17 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.01690416
       objectReference: {fileID: 0}
+    - target: {fileID: 4889862029782082773, guid: 7e826a46d9721c44fb741d898d6149da,
+        type: 3}
+      propertyPath: MinDistance
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 4889862029782082773, guid: 7e826a46d9721c44fb741d898d6149da,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8278796181815807816, guid: 572e5bae5c5623a419b3902f32d4aa4d,
+        type: 2}
     - target: {fileID: 6902638595809202409, guid: 7e826a46d9721c44fb741d898d6149da,
         type: 3}
       propertyPath: m_LocalPosition.x
