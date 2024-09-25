@@ -19,11 +19,11 @@ public class FollowPlayerTillCollider : MonoBehaviour
         transform.LookAt(playerTransform.position);
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            gameObject.SetActive(false);
-        }
-    }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Player"))
+    //    {
+    //        gameObject.SetActive(false);
+    //    }
+    //}
 }

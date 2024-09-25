@@ -21,7 +21,7 @@ public class DeactivateOnTimer : MonoBehaviour
         for (int i = 0; i < platformPieces.Length; i++)
         {
             platformPieces[i].AddExplosionForce(200, rndDirection, 200);
-            Debug.Log("We are adding force");
+            //Debug.Log("We are adding force");
         }
         timer -= Time.deltaTime;
         if (timer <= 0)
