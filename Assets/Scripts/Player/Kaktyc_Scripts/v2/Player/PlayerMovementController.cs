@@ -16,7 +16,9 @@ public class PlayerMovementController : MonoBehaviour
 
     private Vector3 moveDirection;
     private Rigidbody rb;
-    
+
+    [SerializeField] private float coyoteTime = 0.2f;
+    private float coyoteTimeCounter;
 
     [SerializeField] private float jumpForce;
     [SerializeField] private float jumpCooldown;
@@ -31,23 +33,31 @@ public class PlayerMovementController : MonoBehaviour
 
     private void Update()
     {
-       if (Input.GetKeyDown(KeyCode.Space) && IsGrounded()) 
-        {
+       if (Input.GetKeyDown(KeyCode.Space) && coyoteTimeCounter>0) 
+       {
             readyToJump = true;
-        }
-        PlayerInput();
-        SpeedControl();
-        //InvokePauseMenu();
-
+       }
+       PlayerInput();
+       SpeedControl();
+       //InvokePauseMenu();
 
         if (IsGrounded())
         {
-            rb.drag = 5;
+            coyoteTimeCounter = coyoteTime;
         }
         else
         {
-            rb.drag = 0;
+            coyoteTimeCounter -= Time.deltaTime;
         }
+
+       //if (IsGrounded())
+       //{
+       //    rb.drag = 5;
+       //}
+       //else
+       //{
+       //    rb.drag = 0;
+       //}
     }
     private void FixedUpdate()
     {
@@ -71,16 +81,16 @@ public class PlayerMovementController : MonoBehaviour
     {
         Vector3 forward = new Vector3(playerOrientation.forward.x, 0f, playerOrientation.forward.z).normalized;
         Vector3 right = new Vector3(playerOrientation.right.x, 0f, playerOrientation.right.z).normalized;
-
+        
         moveDirection = forward * zAxisInput + right * xAxisInput;
 
         if (IsGrounded())
         {
-            rb.AddForce(moveDirection.normalized * currentMoveSpeed * 10f, ForceMode.Force);
+            rb.AddForce(moveDirection.normalized * currentMoveSpeed , ForceMode.VelocityChange);
         }
         else if (!IsGrounded())
         {
-            rb.AddForce(moveDirection.normalized * currentMoveSpeed * 10f * airMultiplier, ForceMode.Force);
+            rb.AddForce(moveDirection.normalized * currentMoveSpeed * airMultiplier, ForceMode.VelocityChange);
         }
 
     }
