@@ -23,9 +23,13 @@ public class CameraController : MonoBehaviour
         camOffset = new Vector3 (0,1.5f,0);
     }
 
-    private void LateUpdate()
+    private void Update()
     {
         camSensSider = _sensSliderObject.GetComponent<Slider>().value;
+    }
+
+    private void LateUpdate()
+    {
         transform.position = playerObjOrientation.position + camOffset;
         float inputMouseX = Input.GetAxis("Mouse X") * _xSens * Time.deltaTime;
         float inputMouseY = Input.GetAxis("Mouse Y") * _ySens * Time.deltaTime;
