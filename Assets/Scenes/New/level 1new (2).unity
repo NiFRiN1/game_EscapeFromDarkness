@@ -219,7 +219,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1626705289}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
+        m_MethodName: set_value
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 250
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 709396787}
+        m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
+        m_MethodName: SetSens
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 250
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &8608424
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5830,6 +5854,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 6.5, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &709396787 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 495941745318884666, guid: 0ec33b415269ea8408fc164e417ac617,
+    type: 3}
+  m_PrefabInstance: {fileID: 1706951146}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 064572aa7530e1542b069831c16eeae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &720081390
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14303,14 +14339,14 @@ MonoBehaviour:
   m_FillRect: {fileID: 2090353368}
   m_HandleRect: {fileID: 2029925270}
   m_Direction: 0
-  m_MinValue: 200
+  m_MinValue: 50
   m_MaxValue: 700
   m_WholeNumbers: 1
-  m_Value: 200
+  m_Value: 250
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8968156272102087415}
+      - m_Target: {fileID: 709396787}
         m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
         m_MethodName: SetSens
         m_Mode: 4
@@ -14318,7 +14354,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 500
+          m_FloatArgument: 250
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -14814,6 +14850,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 495941745318884666, guid: 0ec33b415269ea8408fc164e417ac617,
+        type: 3}
+      propertyPath: _xSens
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 495941745318884666, guid: 0ec33b415269ea8408fc164e417ac617,
+        type: 3}
+      propertyPath: _ySens
+      value: 250
+      objectReference: {fileID: 0}
     - target: {fileID: 495941745318884666, guid: 0ec33b415269ea8408fc164e417ac617,
         type: 3}
       propertyPath: _sensSliderObject
