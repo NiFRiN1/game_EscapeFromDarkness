@@ -13,6 +13,7 @@ public class CamerasController : MonoBehaviour
 
     private void Start()
     {
+
         for (int i = 0; i < cameras.Length; i++) {
             cameras[i].gameObject.SetActive(i == currentCameraIdx);
         }

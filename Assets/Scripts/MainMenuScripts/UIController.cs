@@ -26,7 +26,8 @@ public class UIController : MonoBehaviour
 
     private void Update()
     {
-        
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     private void SetGameVersion()
