@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7052852589123530562}
   - component: {fileID: 648238727928308801}
   - component: {fileID: 5053444199605283839}
+  - component: {fileID: 5384052202197561708}
   m_Layer: 0
   m_Name: Big_platfrom_3
   m_TagString: Untagged
@@ -27,13 +28,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1152177115553416221}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: -7.135043, y: -2.0312243, z: 3.9689205}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 300, y: 299.99997, z: 299.99997}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
 --- !u!33 &7052852589123530562
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -106,3 +107,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2241673404459374524, guid: 9473ef35e5e160542b29fdf798d4c759, type: 3}
+--- !u!65 &5384052202197561708
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152177115553416221}
+  m_Material: {fileID: 13400000, guid: 854e2a20495239146b913f878282464b, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.09870917, y: 0.11638423, z: 0.031401232}
+  m_Center: {x: 0.0013526472, y: 0.009503333, z: 0.023}
