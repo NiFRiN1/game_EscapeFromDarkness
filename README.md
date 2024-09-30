@@ -1,2 +1,2 @@
 # game_EscapeFromDarkness
- Decs.
+> **Проект заморожен.**
